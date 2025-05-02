@@ -1,4 +1,6 @@
 import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
+
 
 export default {
     darkMode: ["class"],
@@ -8,7 +10,20 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    container: { // Add container settings
+      center: true,
+      padding: "1rem", // Default padding
+      screens: {
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
+      },
+    },
   	extend: {
+       fontFamily: {
+        sans: ["var(--font-inter)", ...fontFamily.sans],
+      },
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
@@ -82,11 +97,34 @@ export default {
   				to: {
   					height: '0'
   				}
-  			}
+  			},
+           // Added animations
+          "fade-in": {
+            "0%": { opacity: "0" },
+            "100%": { opacity: "1" },
+          },
+           "fade-in-up": {
+              "0%": { opacity: "0", transform: "translateY(20px)" },
+              "100%": { opacity: "1", transform: "translateY(0)" },
+           },
+            "blob": {
+              "0%, 100%": { transform: "translate(0px, 0px) scale(1)" },
+              "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+              "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+            },
+             "scroll-reveal": {
+              "from": { opacity: "0", transform: "translateY(30px)"},
+              "to": { opacity: "1", transform: "translateY(0)"},
+            }
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+           // Added animations
+           "fade-in": "fade-in 0.6s ease-out forwards",
+           "fade-in-up": "fade-in-up 0.8s ease-out forwards",
+           "blob": "blob 7s infinite ease-in-out",
+           "scroll-reveal": "scroll-reveal 1s cubic-bezier(0.5, 0, 0, 1) forwards", // For scroll animations
   		}
   	}
   },
