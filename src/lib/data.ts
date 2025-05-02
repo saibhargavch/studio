@@ -108,11 +108,11 @@ export const projectsData: Project[] = [
   {
     title: 'OTP Based Secured Locking System using IoT',
     description: 'An IoT based device having two layered authentication. Designed and implemented an advanced locking mechanism incorporating OTP (One-Time Password) authentication via cellular networks. Developed the prototype using IoT technologies, including Arduino Uno and SIM modules, ensuring robust and reliable performance. Incorporated a two-tier authentication process combining RFID and OTP mechanisms to provide multi-layered security. Employed Python programming to develop the system’s logic and functionality, enabling seamless interaction between components and user authentication.',
-    image: 'https://picsum.photos/seed/otp-lock/600/400', // Placeholder image
+    image: '/otp-lock-project.jpg', // Updated image path
     techStack: ['IoT', 'Arduino Uno', 'SIM Modules', 'Python', 'RFID'],
     // liveUrl: '#', // No live URL provided
     // githubUrl: '#', // No GitHub URL provided
-    aiHint: 'iot security lock otp authentication',
+    aiHint: 'iot lock system components phone otp', // Updated AI hint
     date: 'July 2022 - November 2022' // Added date
   },
   {
@@ -144,3 +144,4 @@ export const navLinks = [
   { name: 'Projects', hash: '#projects' },
   { name: 'Contact', hash: '#contact' },
 ];
+
