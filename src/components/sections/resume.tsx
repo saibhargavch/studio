@@ -9,15 +9,17 @@ import {
 } from "@/components/ui/accordion"
 import { resumeData } from '@/lib/data';
 import type { ResumeItem } from '@/types';
-import { Briefcase, GraduationCap, Wrench, Calendar, Building } from 'lucide-react';
+import { Briefcase, GraduationCap, Wrench, Calendar, Building, Trophy, Award, Star } from 'lucide-react'; // Added Trophy, Award, Star
 import { SectionTitle } from '@/components/section-title';
 import { Badge } from '@/components/ui/badge';
 
 
 const iconMap: { [key: string]: React.ElementType } = {
-  Experience: Briefcase,
+  Internships: Briefcase, // Changed from Experience
   Education: GraduationCap,
-  Skills: Wrench,
+  Achievements: Trophy, // Added icon for Achievements
+  Certifications: Award, // Added icon for Certifications
+  'Technical Skills and Interests': Wrench, // Updated title
 };
 
 export function ResumeSection() {
@@ -25,9 +27,11 @@ export function ResumeSection() {
     <section id="resume" className="bg-background">
       <div className="container mx-auto px-4">
         <SectionTitle>My Resume</SectionTitle>
-        <Accordion type="single" collapsible className="w-full max-w-4xl mx-auto">
+        <Accordion type="multiple" collapsible className="w-full max-w-4xl mx-auto" defaultValue={['item-0', 'item-1']}> {/* Allow multiple open */}
           {resumeData.map((section, index) => {
-            const IconComponent = iconMap[section.title] || Briefcase;
+            const IconComponent = iconMap[section.title] || Star; // Default to Star if no icon mapped
+            const isBadgeSection = section.title === 'Technical Skills and Interests' || section.title === 'Certifications'; // Skills and Certs as badges
+
             return (
               <AccordionItem value={`item-${index}`} key={section.title} className="border-b border-border last:border-b-0">
                 <AccordionTrigger className="text-lg md:text-xl font-semibold hover:text-accent transition-colors py-4 [&[data-state=open]>svg]:text-accent">
@@ -37,7 +41,7 @@ export function ResumeSection() {
                   </span>
                 </AccordionTrigger>
                 <AccordionContent className="pt-1 pb-4 pl-10 pr-2">
-                  {section.title === 'Skills' ? (
+                  {isBadgeSection ? (
                      <div className="flex flex-wrap gap-2">
                       {section.items.map((item) => (
                         <Badge key={item.title} variant="secondary" className="text-sm font-medium transition-transform hover:scale-105 cursor-default">
@@ -83,4 +87,3 @@ function ResumeItemContent({ item }: { item: ResumeItem }) {
     </div>
   );
 }
-

@@ -94,9 +94,9 @@ export function Header() {
       )}
     >
       <div className="container flex h-16 items-center justify-between">
-        {/* TODO: Replace 'Alex Chen' with your name */}
+        {/* Updated with user's name */}
         <Link href="#home" className="text-xl font-bold text-primary" onClick={() => setActiveLink('#home')}>
-          Alex Chen
+          Sai Bhargav C.
         </Link>
 
         {/* Desktop Navigation */}

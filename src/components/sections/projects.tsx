@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink, Calendar } from 'lucide-react'; // Added Calendar icon
 import { projectsData } from '@/lib/data';
 import type { Project } from '@/types';
 import { SectionTitle } from '@/components/section-title';
@@ -101,6 +101,11 @@ function ProjectCard({ project }: { project: Project }) {
       </CardHeader>
       <CardContent className="p-4 flex-grow flex flex-col"> {/* Ensure content grows */}
         <CardTitle className="text-xl mb-2 text-primary">{project.title}</CardTitle>
+         {project.date && (
+            <p className="text-xs text-muted-foreground flex items-center mb-2">
+             <Calendar className="h-3.5 w-3.5 mr-1.5 text-primary/70"/> {project.date}
+            </p>
+          )}
         <p className="text-sm text-muted-foreground mb-4 flex-grow">{project.description}</p> {/* Make description grow */}
         <div className="flex flex-wrap gap-2 mt-auto"> {/* Push tech stack to bottom */}
           {project.techStack.map((tech) => (

@@ -5,17 +5,17 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
-  // TODO: Replace these with your actual links and email
-  const githubUrl = "https://github.com/alexchen-dev"; // Example GitHub URL
-  const linkedinUrl = "https://linkedin.com/in/alexchen-dev"; // Example LinkedIn URL
-  const emailAddress = "alex.chen.dev@example.com"; // Example Email
+  // Updated with user's actual links and email
+  const githubUrl = "https://github.com/saibhargavch"; // User's GitHub URL
+  const linkedinUrl = "https://linkedin.com/in/saibhargav-chitteti"; // User's LinkedIn URL
+  const emailAddress = "saibhargavchitteti@gmail.com"; // User's Email
 
   return (
     <footer className="bg-secondary text-secondary-foreground py-8">
       <div className="container flex flex-col md:flex-row items-center justify-between">
         <p className="text-sm mb-4 md:mb-0">
-           {/* TODO: Replace 'Alex Chen' with your name if different */}
-          &copy; {currentYear} Alex Chen Portfolio. All rights reserved.
+           {/* Updated with user's name */}
+          &copy; {currentYear} Chitteti Sai Bhargav. All rights reserved.
         </p>
         <div className="flex space-x-4">
           <Link href={githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub">

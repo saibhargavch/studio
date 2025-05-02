@@ -12,10 +12,10 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-// TODO: Update metadata with your actual name and description
+// Updated metadata with user's actual name and description
 export const metadata: Metadata = {
-  title: 'Alex Chen - Full-Stack Developer Portfolio', // Updated title with example name
-  description: 'Personal portfolio website showcasing the skills and projects of Alex Chen, a Full-Stack Developer.', // Updated description with example name/role
+  title: 'Chitteti Sai Bhargav - Cybersecurity Portfolio', // Updated title with user's name
+  description: 'Portfolio showcasing the skills, projects, and experience of Chitteti Sai Bhargav, an aspiring Cybersecurity professional.', // Updated description
 };
 
 export default function RootLayout({

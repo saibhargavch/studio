@@ -84,8 +84,8 @@ export function ContactSection() {
     }
   }
 
-  // TODO: Replace with your actual email address
-  const contactEmail = "alex.chen.dev@example.com";
+  // Updated with user's actual email address
+  const contactEmail = "saibhargavchitteti@gmail.com";
 
   return (
     <section id="contact" className="bg-background py-16 md:py-24">

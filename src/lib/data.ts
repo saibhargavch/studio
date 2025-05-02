@@ -1,110 +1,146 @@
 import type { Project, ResumeSection } from '@/types';
 
-// TODO: Update this data with your personal details, experience, education, and skills.
+// Updated with user's details from the provided image
 export const resumeData: ResumeSection[] = [
-  {
-    title: 'Experience',
+   {
+    title: 'Internships', // Renamed from Experience
     items: [
       {
-        title: 'Full-Stack Developer',
-        subtitle: 'Innovatech Global',
-        date: 'Mar 2021 - Present',
-        description: 'Develop and maintain scalable web applications using Next.js, TypeScript, and GraphQL. Collaborate with cross-functional teams to define, design, and ship new features. Implemented CI/CD pipelines improving deployment frequency by 40%.',
+        title: 'Supraja Technologies',
+        subtitle: 'Vijayawada, Andhra Pradesh',
+        date: 'May 2024 - June 2024',
+        description: 'Gained substantial experience in cybersecurity practices, enhancing both foundational and advanced skills. Acquired proficiency in network fundamentals and advanced networking security measures. Utilized Kali Linux and Windows to develop practical skills in various operating system environments. Conducted penetration tests and vulnerability scans on web and mobile applications, identifying and addressing potential security weaknesses.',
       },
       {
-        title: 'Junior Web Developer',
-        subtitle: 'Creative Solutions Agency',
-        date: 'Jul 2019 - Feb 2021',
-        description: 'Built responsive websites and landing pages for clients using React, Node.js, and various CMS platforms. Assisted senior developers in backend tasks and database management (MongoDB, PostgreSQL).',
+        title: 'The Red Users',
+        subtitle: 'Chennai, Tamil Nadu',
+        date: 'October 2024 - November 2024', // Assuming current year based on context, adjust if needed
+        description: 'Gained hands-on experience in Vulnerability Assessment and Penetration Testing (VAPT) methodologies. Performed penetration testing to identify security flaws and provide actionable recommendations. Conducted risk assessments for various systems and applications, ensuring robust security measures. Learned to use industry-standard tools such as Burp Suite, Nmap, Metasploit, and Wireshark for security testing. Developed an understanding of OWASP Top 10 vulnerabilities and mitigation strategies.',
       },
     ],
   },
   {
     title: 'Education',
     items: [
+       {
+        title: 'Bachelor of Technology in Computer Science and Engineering (Cyber Security)',
+        subtitle: 'Vel Tech Rangarajan Dr. Sagunthala R&D Institute of Science and Technology, Chennai',
+        date: '2022 - 2026',
+        description: 'CGPA: 8.1',
+      },
       {
-        title: 'B.Sc. in Software Engineering',
-        subtitle: 'Metropolis University',
-        date: '2015 - 2019',
-        description: 'Graduated with Honors. Focus on full-stack development, algorithms, and cloud computing. Led a team project developing a real-time collaborative editor.',
+        title: 'Intermediate (MPC)',
+        subtitle: 'Narayana Junior College, Vijayawada',
+        date: '2019 - 2021',
+        description: 'Percentage: 80%',
       },
        {
-        title: 'Certified Cloud Practitioner',
-        subtitle: 'Amazon Web Services (AWS)',
+        title: '10th (SSC)',
+        subtitle: 'Montessori High School, Ongole',
+        date: '2020',
+        description: 'Percentage: 98%',
+      },
+    ],
+  },
+   {
+    title: 'Achievements', // Added Achievements section
+    items: [
+      {
+        title: 'OTP-Based Secure Locking System Using IoT',
         date: '2022',
-        description: 'Certification covering cloud concepts, AWS services, security, architecture, pricing, and support.',
+        description: 'Selected for a prestigious project expo (exhibition).',
+      },
+      {
+        title: 'Tantraz 2K25',
+        date: '2025', // Assuming future event year based on name
+        description: 'Won 1st place in the Clueless Coder technical event, organized by the SoC.',
+      },
+      {
+        title: 'Best Performer Award',
+        date: '2024',
+        description: 'Exceptional contribution during the internship at Supraja Technology.',
       },
     ],
   },
   {
-    title: 'Skills',
+    title: 'Certifications', // Added Certifications section
     items: [
-       { title: 'JavaScript (ES6+)', description: '' },
-       { title: 'TypeScript', description: '' },
-       { title: 'React', description: '' },
-       { title: 'Next.js', description: '' },
-       { title: 'Node.js', description: '' },
-       { title: 'GraphQL', description: '' },
-       { title: 'REST APIs', description: '' },
-       { title: 'HTML5', description: '' },
-       { title: 'CSS3 / SASS', description: '' },
-       { title: 'Tailwind CSS', description: '' },
-       { title: 'PostgreSQL', description: '' },
-       { title: 'MongoDB', description: '' },
-       { title: 'Git / GitHub', description: '' },
-       { title: 'Docker', description: '' },
-       { title: 'AWS (EC2, S3, Lambda)', description: '' },
-       { title: 'Jest / Testing Library', description: '' },
-       { title: 'Agile Methodologies', description: '' },
-       { title: 'UI/UX Principles', description: '' },
+      { title: 'Career Essentials in Cybersecurity by Microsoft and LinkedIn', description: '' }, // Assuming link or details are not required here
+      { title: 'CISCO: Introduction to Cybersecurity', description: '' },
+      { title: 'CCNA: Introduction to Networks', description: '' },
+      { title: 'CCNA: Switching, Routing, and Wireless Essentials', description: '' },
+      { title: 'PCAP - Programming Essentials in Python', description: '' },
+    ],
+  },
+  {
+    title: 'Technical Skills and Interests', // Combined sections
+    items: [
+       // Languages
+       { title: 'Python', description: '' },
+       // Relevant Coursework / Operating Systems / Tools
+       { title: 'Operating Systems (Windows, Kali Linux, Parrot)', description: '' },
+       { title: 'Computer Networks', description: '' },
+       { title: 'Burp Suite', description: '' },
+       { title: 'Nmap', description: '' },
+       { title: 'Metasploit', description: '' },
+       { title: 'Wireshark', description: '' },
+       { title: 'Arduino', description: '' }, // From IoT project
+       { title: 'Pandas', description: '' }, // From House Price project
+       { title: 'Scikit-learn', description: '' }, // From House Price project
+       { title: 'Matplotlib', description: '' }, // From House Price project
+       // Areas of Interest
+       { title: 'Cyber Security', description: '' },
+       { title: 'Ethical Hacking', description: '' },
+       { title: 'VAPT', description: '' }, // From summary
+       { title: 'Network Security', description: '' }, // From summary
+       { title: 'Secure IoT', description: '' }, // From summary
+       { title: 'System Hardening', description: '' }, // From summary
+       // Soft Skills
+       { title: 'Communication', description: '' },
+       { title: 'Self-learning', description: '' },
+       { title: 'Commitment', description: '' },
     ]
   },
 ];
 
-// TODO: Update this data with your actual projects. Replace images, links, and descriptions.
+// Updated with user's project data from the image
 export const projectsData: Project[] = [
   {
-    title: 'Project Atlas: Real-time Dashboard',
-    description: 'A dynamic dashboard visualizing complex datasets with interactive charts and real-time updates via WebSockets.',
-    image: 'https://picsum.photos/seed/atlas/600/400',
-    techStack: ['Next.js', 'TypeScript', 'Recharts', 'GraphQL', 'Node.js', 'WebSocket'],
-    liveUrl: '#', // Replace with actual link
-    githubUrl: '#', // Replace with actual link
-    aiHint: 'data visualization charts dashboard',
+    title: 'OTP Based Secured Locking System using IoT',
+    description: 'An IoT based device having two layered authentication. Designed and implemented an advanced locking mechanism incorporating OTP (One-Time Password) authentication via cellular networks. Developed the prototype using IoT technologies, including Arduino Uno and SIM modules, ensuring robust and reliable performance. Incorporated a two-tier authentication process combining RFID and OTP mechanisms to provide multi-layered security. Employed Python programming to develop the system’s logic and functionality, enabling seamless interaction between components and user authentication.',
+    image: 'https://picsum.photos/seed/otp-lock/600/400', // Placeholder image
+    techStack: ['IoT', 'Arduino Uno', 'SIM Modules', 'Python', 'RFID'],
+    // liveUrl: '#', // No live URL provided
+    // githubUrl: '#', // No GitHub URL provided
+    aiHint: 'iot security lock otp authentication',
+    date: 'July 2022 - November 2022' // Added date
   },
   {
-    title: 'ConnectSphere: Social Networking App',
-    description: 'A social platform focused on professional networking, featuring profiles, connections, and group discussions.',
-    image: 'https://picsum.photos/seed/connect/600/400',
-    techStack: ['React Native', 'Firebase Auth', 'Firestore', 'Node.js (Cloud Functions)'],
-    // liveUrl: '#', // Add link if applicable (e.g., App Store)
-    githubUrl: '#', // Replace with actual link
-    aiHint: 'mobile app social network profile',
+    title: 'USB Physical Security using Python',
+    description: 'An application to prevent unauthorized USB device connections to a system. Implemented mechanisms to block USB connections, significantly reducing the risk of malware and virus infections. Developed an application using Python to prevent unauthorized USB device connections to a system. Designed the application to enhance overall system security by preventing potential threats associated with external USB devices. Utilized Python programming to create a robust solution that integrates seamlessly with the system’s existing security protocols.',
+    image: 'https://picsum.photos/seed/usb-security/600/400', // Placeholder image
+    techStack: ['Python', 'System Security'],
+    // liveUrl: '#', // No live URL provided
+    // githubUrl: '#', // No GitHub URL provided
+    aiHint: 'usb security python application system',
+    date: 'May 2024 - June 2024' // Added date
   },
   {
-    title: 'QuickCart: Headless E-commerce',
-    description: 'A modern e-commerce storefront built with a headless CMS and integrated with Stripe for payments.',
-    image: 'https://picsum.photos/seed/quickcart/600/400',
-    techStack: ['Next.js', 'Tailwind CSS', 'Sanity.io', 'Stripe API', 'GraphQL'],
-    liveUrl: '#', // Replace with actual link
-    githubUrl: '#', // Replace with actual link
-    aiHint: 'online shopping store product',
-  },
-   {
-    title: 'Personal Blog & CMS',
-    description: 'My personal blog built from scratch with a custom CMS backend for content management.',
-    image: 'https://picsum.photos/seed/personalblog/600/400',
-    techStack: ['Node.js', 'Express', 'MongoDB', 'React (Admin Panel)', 'Markdown'],
-    liveUrl: '#', // Replace with actual link
-    githubUrl: '#', // Replace with actual link
-    aiHint: 'blog writing articles cms',
+    title: 'House Price Prediction (Industry Project)',
+    description: 'A machine learning model to predict house prices based on various features. Built a regression-based model to predict house prices using key attributes like location, area, and amenities. Helped identify key features impacting house prices, enabling better decision-making for stakeholders. Performed data preprocessing, visualization, and feature engineering. Technology Used: Python, Pandas, Scikit-learn, Matplotlib.',
+    image: 'https://picsum.photos/seed/house-price/600/400', // Placeholder image
+    techStack: ['Machine Learning', 'Python', 'Pandas', 'Scikit-learn', 'Matplotlib', 'Data Preprocessing', 'Feature Engineering'],
+    // liveUrl: '#', // No live URL provided
+    // githubUrl: '#', // No GitHub URL provided
+    aiHint: 'machine learning prediction house price data',
+    date: 'November 2024 - January 2025' // Added date
   },
 ];
 
-// Navigation links - update if you change section IDs or titles
+// Navigation links - updated based on new sections
 export const navLinks = [
   { name: 'Home', hash: '#home' },
-  { name: 'Resume', hash: '#resume' },
+  { name: 'Resume', hash: '#resume' }, // Combined Internships, Education, Achievements, Certs, Skills
   { name: 'Projects', hash: '#projects' },
   { name: 'Contact', hash: '#contact' },
 ];

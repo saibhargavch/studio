@@ -7,10 +7,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export function HeroSection() {
-  // TODO: Replace 'Alex Chen' with your actual name
-  const userName = "Alex Chen";
-  // TODO: Replace tagline with your actual role/specialization
-  const userTagline = "A passionate Full-Stack Developer crafting seamless digital experiences.";
+  // Updated with user's name
+  const userName = "Chitteti Sai Bhargav";
+  // Updated with user's tagline from profile summary
+  const userTagline = "Aspiring Cybersecurity professional with hands-on experience in VAPT, network security, and secure IoT applications.";
 
   return (
     <section id="home" className="min-h-[calc(100vh-4rem)] flex items-center bg-secondary relative overflow-hidden">
@@ -38,16 +38,15 @@ export function HeroSection() {
             </div>
           </div>
           <div className="md:w-1/3 flex justify-center animate-fade-in">
-             {/* Placeholder for a profile picture or illustration */}
-             {/* TODO: Replace placeholder image with your actual photo */}
+             {/* TODO: Replace placeholder image with user's actual photo */}
              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden bg-gradient-to-br from-accent/20 to-primary/10 shadow-lg border-4 border-background flex items-center justify-center">
                 <Image
-                    src="https://picsum.photos/seed/alexchen/300/300" // Changed seed for variety
+                    src="https://picsum.photos/seed/saibhargav/300/300" // Changed seed for variety
                     alt={`Profile Picture of ${userName}`}
                     width={300}
                     height={300}
                     className="object-cover w-full h-full"
-                    data-ai-hint="professional headshot Alex Chen developer" // Updated AI hint
+                    data-ai-hint="professional headshot Sai Bhargav cybersecurity" // Updated AI hint
                  />
              </div>
           </div>
@@ -79,7 +78,7 @@ export function HeroSection() {
         @keyframes fade-in-up {
           from {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(20px); /* Corrected typo */
           }
           to {
             opacity: 1;

@@ -1,8 +1,8 @@
 export interface ResumeItem {
   title: string;
-  subtitle?: string;
+  subtitle?: string; // Made optional
   date?: string;
-  description: string;
+  description?: string; // Made optional
 }
 
 export interface ResumeSection {
@@ -18,4 +18,5 @@ export interface Project {
   liveUrl?: string;
   githubUrl?: string;
   aiHint?: string;
+  date?: string; // Added optional date field
 }
