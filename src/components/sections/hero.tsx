@@ -7,6 +7,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export function HeroSection() {
+  // TODO: Replace 'Alex Chen' with your actual name
+  const userName = "Alex Chen";
+  // TODO: Replace tagline with your actual role/specialization
+  const userTagline = "A passionate Full-Stack Developer crafting seamless digital experiences.";
+
   return (
     <section id="home" className="min-h-[calc(100vh-4rem)] flex items-center bg-secondary relative overflow-hidden">
        {/* Subtle background elements */}
@@ -18,10 +23,10 @@ export function HeroSection() {
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="md:w-1/2 text-center md:text-left mb-10 md:mb-0 animate-fade-in-up">
             <h1 className="text-4xl md:text-6xl font-bold text-primary mb-4">
-              Hi, I'm <span className="text-accent">Your Name</span>
+              Hi, I'm <span className="text-accent">{userName}</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8">
-              A passionate Web Developer crafting seamless digital experiences.
+             {userTagline}
             </p>
             <div className="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
               <Button size="lg" asChild>
@@ -34,14 +39,15 @@ export function HeroSection() {
           </div>
           <div className="md:w-1/3 flex justify-center animate-fade-in">
              {/* Placeholder for a profile picture or illustration */}
+             {/* TODO: Replace placeholder image with your actual photo */}
              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden bg-gradient-to-br from-accent/20 to-primary/10 shadow-lg border-4 border-background flex items-center justify-center">
                 <Image
-                    src="https://picsum.photos/seed/profile/300/300"
-                    alt="Profile Picture Placeholder"
+                    src="https://picsum.photos/seed/alexchen/300/300" // Changed seed for variety
+                    alt={`Profile Picture of ${userName}`}
                     width={300}
                     height={300}
                     className="object-cover w-full h-full"
-                    data-ai-hint="professional headshot developer"
+                    data-ai-hint="professional headshot Alex Chen developer" // Updated AI hint
                  />
              </div>
           </div>
@@ -98,23 +104,3 @@ export function HeroSection() {
     </section>
   );
 }
-
-// Add keyframes for animations in globals.css or use Tailwind's animation utilities if preferred
-// For example, in globals.css:
-/*
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.animate-fade-in-up {
-  animation: fade-in-up 0.8s ease-out forwards;
-}
-*/
-
-// Add similar keyframes for blob animation or other desired effects.

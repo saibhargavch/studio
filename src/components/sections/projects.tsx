@@ -15,6 +15,7 @@ import { cn } from '@/lib/utils';
 export function ProjectsSection() {
   const [filter, setFilter] = useState<string>('All');
 
+  // Deduplicate tech stacks for filter buttons
   const allTechStacks = Array.from(new Set(projectsData.flatMap(p => p.techStack)));
 
   const filteredProjects = filter === 'All'
@@ -22,7 +23,7 @@ export function ProjectsSection() {
     : projectsData.filter(p => p.techStack.includes(filter));
 
   return (
-    <section id="projects" className="bg-secondary">
+    <section id="projects" className="bg-secondary py-16 md:py-24"> {/* Added padding */}
       <div className="container mx-auto px-4">
         <SectionTitle>Projects</SectionTitle>
 
@@ -32,7 +33,7 @@ export function ProjectsSection() {
             variant={filter === 'All' ? 'default' : 'outline'}
             onClick={() => setFilter('All')}
             className={cn("transition-all", filter === 'All' && 'bg-accent text-accent-foreground hover:bg-accent/90')}
-
+            aria-pressed={filter === 'All'}
           >
             All
           </Button>
@@ -42,6 +43,7 @@ export function ProjectsSection() {
               variant={filter === tech ? 'default' : 'outline'}
               onClick={() => setFilter(tech)}
               className={cn("transition-all", filter === tech && 'bg-accent text-accent-foreground hover:bg-accent/90')}
+               aria-pressed={filter === tech}
             >
               {tech}
             </Button>
@@ -53,6 +55,9 @@ export function ProjectsSection() {
           {filteredProjects.map((project, index) => (
             <ProjectCard key={index} project={project} />
           ))}
+           {filteredProjects.length === 0 && (
+             <p className="text-muted-foreground text-center col-span-full">No projects match the selected filter.</p>
+           )}
         </div>
       </div>
     </section>
@@ -61,8 +66,10 @@ export function ProjectsSection() {
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02] flex flex-col">
-      <CardHeader className="p-0">
+     // Added group class for image hover effect
+    <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02] flex flex-col bg-card group">
+      <CardHeader className="p-0 relative"> {/* Added relative positioning */}
+        {/* TODO: Replace placeholder image with your actual project screenshot */}
         <div className="aspect-video overflow-hidden">
           <Image
             src={project.image}
@@ -73,25 +80,45 @@ function ProjectCard({ project }: { project: Project }) {
             data-ai-hint={project.aiHint || 'project screenshot application'}
           />
         </div>
+         {/* Optional: Overlay for links on hover */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-end p-4 space-x-2">
+             {/* TODO: Ensure these links point to your actual project URLs */}
+              {project.githubUrl && project.githubUrl !== '#' && (
+                <Button variant="secondary" size="icon" asChild className="h-8 w-8 rounded-full">
+                    <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} GitHub Repository`}>
+                    <Github className="h-4 w-4" />
+                    </Link>
+                </Button>
+              )}
+              {project.liveUrl && project.liveUrl !== '#' && (
+                <Button variant="secondary" size="icon" asChild className="h-8 w-8 rounded-full">
+                    <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} Live Demo`}>
+                    <ExternalLink className="h-4 w-4" />
+                    </Link>
+                </Button>
+              )}
+          </div>
       </CardHeader>
-      <CardContent className="p-4 flex-grow">
+      <CardContent className="p-4 flex-grow flex flex-col"> {/* Ensure content grows */}
         <CardTitle className="text-xl mb-2 text-primary">{project.title}</CardTitle>
-        <p className="text-sm text-muted-foreground mb-4">{project.description}</p>
-        <div className="flex flex-wrap gap-2">
+        <p className="text-sm text-muted-foreground mb-4 flex-grow">{project.description}</p> {/* Make description grow */}
+        <div className="flex flex-wrap gap-2 mt-auto"> {/* Push tech stack to bottom */}
           {project.techStack.map((tech) => (
             <Badge key={tech} variant="secondary">{tech}</Badge>
           ))}
         </div>
       </CardContent>
-      <CardFooter className="p-4 pt-0 flex justify-end space-x-2">
-        {project.githubUrl && (
+       {/* Footer can be simplified or removed if links are moved to hover overlay */}
+       {/*
+      <CardFooter className="p-4 pt-2 flex justify-end space-x-2">
+        {project.githubUrl && project.githubUrl !== '#' && (
           <Button variant="ghost" size="icon" asChild>
             <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} GitHub`}>
               <Github className="h-5 w-5" />
             </Link>
           </Button>
         )}
-        {project.liveUrl && (
+        {project.liveUrl && project.liveUrl !== '#' && (
           <Button variant="ghost" size="icon" asChild>
             <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} Live Demo`}>
               <ExternalLink className="h-5 w-5" />
@@ -99,6 +126,7 @@ function ProjectCard({ project }: { project: Project }) {
           </Button>
         )}
       </CardFooter>
+      */}
     </Card>
   );
 }

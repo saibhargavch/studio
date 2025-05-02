@@ -20,13 +20,29 @@ export function Header() {
       let currentSection = '#home';
       const sections = navLinks.map(link => document.getElementById(link.hash.substring(1))).filter(Boolean);
 
-      for (const section of sections) {
-          if (section && section.offsetTop <= window.scrollY + 100) {
-              currentSection = `#${section.id}`;
-          } else {
-              break;
-          }
+      // Ensure sections array is not empty before proceeding
+      if (sections.length > 0) {
+        for (const section of sections) {
+            if (section && section.offsetTop <= window.scrollY + 100) {
+                currentSection = `#${section.id}`;
+            } else if (section && section.offsetTop > window.scrollY + 100) {
+                 // If the current section is below the scroll position + offset, break
+                 // This prevents later sections from incorrectly becoming active when scrolling up fast
+                 break;
+            }
+        }
+         // Special case for reaching the bottom of the page
+         if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+             const lastSection = sections[sections.length - 1];
+             if (lastSection) {
+                 currentSection = `#${lastSection.id}`;
+             }
+         }
+      } else if (window.scrollY < 100) { // Default to home if no sections or at top
+            currentSection = '#home';
       }
+
+
       setActiveLink(currentSection);
     };
 
@@ -36,17 +52,34 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
+  const NavLink = ({ href, children, isSheetLink = false }: { href: string; children: React.ReactNode; isSheetLink?: boolean }) => (
     <Link
       href={href}
       className={cn(
         'text-sm font-medium transition-colors hover:text-primary px-3 py-2 rounded-md',
-        activeLink === href ? 'bg-secondary text-primary' : 'text-muted-foreground'
+         // Apply different active styles based on context (sheet vs header)
+         isSheetLink
+           ? activeLink === href ? 'bg-muted text-primary' : 'text-muted-foreground'
+           : activeLink === href ? 'bg-secondary text-primary' : 'text-muted-foreground'
       )}
       onClick={(e) => {
         e.preventDefault();
-        document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+        const element = document.querySelector(href);
+        if (element) {
+           const offset = 80; // Adjust this value based on your header height
+           const bodyRect = document.body.getBoundingClientRect().top;
+           const elementRect = element.getBoundingClientRect().top;
+           const elementPosition = elementRect - bodyRect;
+           const offsetPosition = elementPosition - offset;
+
+           window.scrollTo({
+             top: offsetPosition,
+             behavior: 'smooth'
+           });
+        }
+
         setActiveLink(href);
+        // If it's a sheet link, we might want to close the sheet - handled by SheetTrigger asChild below
       }}
     >
       {children}
@@ -61,8 +94,9 @@ export function Header() {
       )}
     >
       <div className="container flex h-16 items-center justify-between">
+        {/* TODO: Replace 'Alex Chen' with your name */}
         <Link href="#home" className="text-xl font-bold text-primary" onClick={() => setActiveLink('#home')}>
-          ResumeAce
+          Alex Chen
         </Link>
 
         {/* Desktop Navigation */}
@@ -82,12 +116,13 @@ export function Header() {
               <span className="sr-only">Toggle Menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[250px] sm:w-[300px]">
+          <SheetContent side="right" className="w-[250px] sm:w-[300px] bg-background">
             <div className="flex flex-col p-6 pt-12">
               <nav className="flex flex-col space-y-4">
                 {navLinks.map((link) => (
+                    // Use SheetTrigger asChild to close the sheet on link click
                     <SheetTrigger key={link.hash} asChild>
-                       <NavLink href={link.hash}>
+                       <NavLink href={link.hash} isSheetLink={true}>
                         {link.name}
                       </NavLink>
                     </SheetTrigger>
