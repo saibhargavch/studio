@@ -38,68 +38,23 @@ export function HeroSection() {
             </div>
           </div>
           <div className="md:w-1/3 flex justify-center animate-fade-in">
-             {/* TODO: Replace placeholder image with user's actual photo */}
+             {/* User's actual photo - Assuming it's saved as public/profile-photo.jpg */}
              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden bg-gradient-to-br from-accent/20 to-primary/10 shadow-lg border-4 border-background flex items-center justify-center">
                 <Image
-                    src="https://picsum.photos/seed/saibhargav/300/300" // Changed seed for variety
+                    src="/profile-photo.jpg" // Updated src to local path
                     alt={`Profile Picture of ${userName}`}
                     width={300}
                     height={300}
                     className="object-cover w-full h-full"
-                    data-ai-hint="professional headshot Sai Bhargav cybersecurity" // Updated AI hint
+                    priority // Add priority to preload the hero image
+                    data-ai-hint="professional headshot Sai Bhargav" // Updated AI hint
                  />
              </div>
           </div>
         </div>
       </div>
        {/* Add a subtle animation or element for visual interest */}
-       <style jsx>{`
-         .animate-blob {
-            animation: blob 7s infinite ease-in-out;
-         }
-        .animation-delay-2000 {
-             animation-delay: 2s;
-         }
-         .animation-delay-4000 {
-             animation-delay: 4s;
-         }
-         @keyframes blob {
-           0%, 100% {
-             transform: translate(0, 0) scale(1);
-           }
-           33% {
-             transform: translate(30px, -40px) scale(1.1);
-           }
-           66% {
-             transform: translate(-20px, 20px) scale(0.9);
-           }
-         }
-
-        @keyframes fade-in-up {
-          from {
-            opacity: 0;
-            transform: translateY(20px); /* Corrected typo */
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-         .animate-fade-in-up {
-             animation: fade-in-up 0.8s ease-out forwards;
-         }
-
-         @keyframes fade-in {
-           from { opacity: 0; }
-           to { opacity: 1; }
-         }
-         .animate-fade-in {
-           animation: fade-in 1s ease-out forwards;
-           animation-delay: 0.3s; /* Delay image animation */
-           opacity: 0; /* Start hidden */
-         }
-
-       `}</style>
+       {/* Styles are removed as they are not allowed in server components */}
     </section>
   );
 }
