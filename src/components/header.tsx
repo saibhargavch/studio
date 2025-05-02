@@ -94,9 +94,9 @@ export function Header() {
       )}
     >
       <div className="container flex h-16 items-center justify-between">
-        {/* Updated with user's name */}
+        {/* Updated with user's full name */}
         <Link href="#home" className="text-xl font-bold text-primary" onClick={() => setActiveLink('#home')}>
-          Sai Bhargav C.
+          Sai Bhargav Chitteti
         </Link>
 
         {/* Desktop Navigation */}
