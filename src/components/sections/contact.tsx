@@ -1,3 +1,4 @@
+
 'use client';
 
 import React from 'react';
@@ -12,34 +13,17 @@ import { SectionTitle } from '@/components/section-title';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from 'lucide-react';
+import { sendContactEmail } from '@/actions/send-email'; // Import the server action
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email({ message: "Please enter a valid email address." }),
-  message: z.string().min(10, { message: "Message must be at least 10 characters." }).max(500, {message: "Message cannot exceed 500 characters."}), // Added max length
+  message: z.string().min(10, { message: "Message must be at least 10 characters." }).max(500, {message: "Message cannot exceed 500 characters."}),
 });
 
 type FormData = z.infer<typeof formSchema>;
 
-// Mock server action - replace with your actual backend logic
-// Consider using a service like Formspree, Netlify Forms, or building a simple API endpoint.
-async function submitForm(data: FormData): Promise<{ success: boolean; message: string }> {
-  console.log('Form Data Submitted:', data);
-  // Simulate network delay
-  await new Promise(resolve => setTimeout(resolve, 1500));
-
-  // Simulate success/failure
-  // In a real scenario, this would involve sending the data to your backend/service
-  const success = Math.random() > 0.1; // 90% success rate for demo
-
-  if (success) {
-    return { success: true, message: "Message sent successfully! I'll get back to you soon." };
-  } else {
-    // Provide a more specific error message if possible from your backend
-    return { success: false, message: "Oops! Something went wrong. Please try again later or email me directly." };
-  }
-}
-
+// Removed the mock submitForm function
 
 export function ContactSection() {
    const { toast } = useToast();
@@ -57,8 +41,9 @@ export function ContactSection() {
   async function onSubmit(values: FormData) {
      setIsSubmitting(true);
     try {
-      // TODO: Replace 'submitForm' with your actual form submission logic (e.g., API call)
-      const result = await submitForm(values);
+      // Use the server action to send the email
+      const result = await sendContactEmail(values);
+
       if (result.success) {
         toast({
           title: "Success!",
@@ -73,7 +58,8 @@ export function ContactSection() {
         });
       }
     } catch (error) {
-        console.error("Form submission error:", error);
+        // Catch potential errors during the action call itself (e.g., network issues)
+        console.error("Contact form submission error:", error);
          toast({
           title: "Submission Error",
           description: "An unexpected error occurred. Please try again or contact me directly.",
@@ -84,7 +70,6 @@ export function ContactSection() {
     }
   }
 
-  // Updated with user's actual email address
   const contactEmail = "saibhargavchitteti@gmail.com";
 
   return (
@@ -96,7 +81,9 @@ export function ContactSection() {
                 <CardTitle className="text-2xl text-primary">Send me a message</CardTitle>
                  <CardDescription>
                     Have a question or want to collaborate? Feel free to reach out! <br/>
-                    You can also email me directly at <a href={`mailto:${contactEmail}`} className="text-accent underline hover:text-accent/80">{contactEmail}</a>.
+                    You can also email me directly at <a href={`mailto:${contactEmail}`} className="text-accent underline hover:text-accent/80">{contactEmail}</a>. <br/>
+                    {/* Add a note about the placeholder */}
+                    <span className="text-xs text-muted-foreground block mt-2">(Note: Form submission currently uses placeholder logic. Email sending needs full setup.)</span>
                  </CardDescription>
              </CardHeader>
              <CardContent>
@@ -109,7 +96,7 @@ export function ContactSection() {
                         <FormItem>
                           <FormLabel>Name</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your Name" {...field} aria-required="true" />
+                            <Input placeholder="Your Name" {...field} aria-required="true" disabled={isSubmitting} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -122,7 +109,7 @@ export function ContactSection() {
                         <FormItem>
                           <FormLabel>Email</FormLabel>
                           <FormControl>
-                            <Input type="email" placeholder="your.email@example.com" {...field} aria-required="true" />
+                            <Input type="email" placeholder="your.email@example.com" {...field} aria-required="true" disabled={isSubmitting} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -135,7 +122,7 @@ export function ContactSection() {
                         <FormItem>
                           <FormLabel>Message</FormLabel>
                           <FormControl>
-                            <Textarea placeholder="Your message here..." {...field} rows={5} aria-required="true" />
+                            <Textarea placeholder="Your message here..." {...field} rows={5} aria-required="true" disabled={isSubmitting} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
