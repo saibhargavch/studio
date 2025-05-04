@@ -34,6 +34,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/wp-content/uploads/**', // Allow images from connectivitycenter uploads
       },
+       {
+        protocol: 'https',
+        hostname: 'camo.githubusercontent.com', // Added for House Price Prediction project image
+        port: '',
+        pathname: '/**', // Allow images from GitHubusercontent CDN
+      },
     ],
   },
 };
