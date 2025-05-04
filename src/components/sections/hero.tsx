@@ -38,22 +38,21 @@ export function HeroSection() {
             </div>
           </div>
           <div className="md:w-1/3 flex justify-center animate-fade-in">
-             {/* Using the previously uploaded profile photo. Replace '/profile-photo.jpg' if needed. */}
+             {/* Using the previously uploaded profile photo. */}
              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden bg-gradient-to-br from-accent/20 to-primary/10 shadow-lg border-4 border-background flex items-center justify-center">
                 <Image
-                    src="/profile-photo.jpg" // Assumes 'profile-photo.jpg' in /public is the desired image (e.g., from LinkedIn)
+                    src="/profile-photo.jpg" // Using the existing image path
                     alt={`Profile photo of ${userName}`} // Updated alt text
                     width={300}
                     height={300}
                     className="object-cover w-full h-full"
                     priority // Add priority to preload the hero image
-                    data-ai-hint="professional headshot Sai Bhargav Chitteti" // Updated AI hint
+                    data-ai-hint="professional headshot Chitteti Sai Bhargav" // Updated AI hint
                  />
              </div>
           </div>
         </div>
       </div>
-       {/* Styles are removed as they are not allowed in server components */}
     </section>
   );
 }
