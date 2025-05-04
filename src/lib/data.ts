@@ -120,7 +120,8 @@ export const projectsData: Project[] = [
   {
     title: 'USB Physical Security using Python',
     description: 'An application to prevent unauthorized USB device connections to a system. Implemented mechanisms to block USB connections, significantly reducing the risk of malware and virus infections. Developed an application using Python to prevent unauthorized USB device connections to a system. Designed the application to enhance overall system security by preventing potential threats associated with external USB devices. Utilized Python programming to create a robust solution that integrates seamlessly with the system’s existing security protocols.',
-    image: 'https://picsum.photos/seed/usb-security/600/400', // Placeholder image
+    // Updated image URL
+    image: 'https://connectivitycenter.com/wp-content/uploads/2023/03/A-Cybersecurity-Guide-to-USB-Ports.jpg',
     techStack: ['Python', 'System Security'],
     // liveUrl: '#', // No live URL provided
     // githubUrl: '#', // No GitHub URL provided

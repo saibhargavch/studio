@@ -28,6 +28,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/wp-contents/uploads/**', // Allow images from electronicsforu uploads
       },
+       {
+        protocol: 'https',
+        hostname: 'connectivitycenter.com', // Added for project image
+        port: '',
+        pathname: '/wp-content/uploads/**', // Allow images from connectivitycenter uploads
+      },
     ],
   },
 };
