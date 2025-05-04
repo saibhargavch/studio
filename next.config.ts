@@ -22,6 +22,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/dms/image/**', // Allow images from LinkedIn CDN
       },
+       {
+        protocol: 'https',
+        hostname: 'www.electronicsforu.com', // Added for project image
+        port: '',
+        pathname: '/wp-contents/uploads/**', // Allow images from electronicsforu uploads
+      },
     ],
   },
 };

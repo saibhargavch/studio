@@ -109,12 +109,12 @@ export const projectsData: Project[] = [
   {
     title: 'OTP Based Secured Locking System using IoT',
     description: 'An IoT based device having two layered authentication. Designed and implemented an advanced locking mechanism incorporating OTP (One-Time Password) authentication via cellular networks. Developed the prototype using IoT technologies, including Arduino Uno and SIM modules, ensuring robust and reliable performance. Incorporated a two-tier authentication process combining RFID and OTP mechanisms to provide multi-layered security. Employed Python programming to develop the system’s logic and functionality, enabling seamless interaction between components and user authentication.',
-    // Updated image path to the provided LinkedIn URL
-    image: 'https://media.licdn.com/dms/image/v2/D5603AQEER0qv_KjZ_Q/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1729707090476?e=2147483647&v=beta&t=7wYz5rV1OzgQp2X1Dhx8Sr9XH6b-hV7LZcs4qOUMMLM',
+    // Updated image path to the provided electronicsforu URL
+    image: 'https://www.electronicsforu.com/wp-contents/uploads/2019/02/fig-8.jpg',
     techStack: ['IoT', 'Arduino Uno', 'SIM Modules', 'Python', 'RFID'],
     // liveUrl: '#', // No live URL provided
     // githubUrl: '#', // No GitHub URL provided
-    aiHint: 'iot lock system components phone otp', // Updated AI hint
+    aiHint: 'circuit diagram iot lock system', // Updated AI hint
     date: 'July 2022 - November 2022' // Added date
   },
   {
