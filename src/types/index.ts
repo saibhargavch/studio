@@ -3,6 +3,7 @@ export interface ResumeItem {
   subtitle?: string; // Made optional
   date?: string;
   description?: string; // Made optional
+  url?: string; // Added optional URL field for links (e.g., certifications)
 }
 
 export interface ResumeSection {

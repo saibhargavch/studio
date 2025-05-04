@@ -65,11 +65,12 @@ export const resumeData: ResumeSection[] = [
   {
     title: 'Certifications', // Added Certifications section
     items: [
-      { title: 'Career Essentials in Cybersecurity by Microsoft and LinkedIn', description: '' }, // Assuming link or details are not required here
-      { title: 'CISCO: Introduction to Cybersecurity', description: '' },
-      { title: 'CCNA: Introduction to Networks', description: '' },
-      { title: 'CCNA: Switching, Routing, and Wireless Essentials', description: '' },
-      { title: 'PCAP - Programming Essentials in Python', description: '' },
+      // TODO: Replace '#' with actual URLs for each certification link
+      { title: 'Career Essentials in Cybersecurity by Microsoft and LinkedIn', description: '', url: '#' },
+      { title: 'CISCO: Introduction to Cybersecurity', description: '', url: '#' },
+      { title: 'CCNA: Introduction to Networks', description: '', url: '#' },
+      { title: 'CCNA: Switching, Routing, and Wireless Essentials', description: '', url: '#' },
+      { title: 'PCAP - Programming Essentials in Python', description: '', url: '#' },
     ],
   },
   {
@@ -144,4 +145,3 @@ export const navLinks = [
   { name: 'Projects', hash: '#projects' },
   { name: 'Contact', hash: '#contact' },
 ];
-
