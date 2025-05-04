@@ -16,6 +16,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+       {
+        protocol: 'https',
+        hostname: 'media.licdn.com', // Added LinkedIn media hostname
+        port: '',
+        pathname: '/dms/image/**', // Allow images from LinkedIn CDN
+      },
     ],
   },
 };

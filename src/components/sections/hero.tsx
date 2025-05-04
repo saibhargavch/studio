@@ -11,6 +11,8 @@ export function HeroSection() {
   const userName = "Chitteti Sai Bhargav";
   // Updated with user's tagline from profile summary
   const userTagline = "Aspiring Cybersecurity professional with hands-on experience in VAPT, network security, and secure IoT applications.";
+  // Updated image source to the provided LinkedIn URL
+  const profileImageUrl = "https://media.licdn.com/dms/image/v2/D5603AQEER0qv_KjZ_Q/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1729707090476?e=2147483647&v=beta&t=7wYz5rV1OzgQp2X1Dhx8Sr9XH6b-hV7LZcs4qOUMMLM";
 
   return (
     <section id="home" className="min-h-[calc(100vh-4rem)] flex items-center bg-secondary relative overflow-hidden">
@@ -38,16 +40,16 @@ export function HeroSection() {
             </div>
           </div>
           <div className="md:w-1/3 flex justify-center animate-fade-in">
-             {/* Using the previously uploaded profile photo. */}
+             {/* Using the online profile photo. */}
              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden bg-gradient-to-br from-accent/20 to-primary/10 shadow-lg border-4 border-background flex items-center justify-center">
                 <Image
-                    src="/profile-photo.jpg" // Using the existing image path
+                    src={profileImageUrl} // Using the online image URL
                     alt={`Profile photo of ${userName}`} // Updated alt text
-                    width={300}
-                    height={300}
+                    width={200} // Using original image dimensions
+                    height={200} // Using original image dimensions
                     className="object-cover w-full h-full"
                     priority // Add priority to preload the hero image
-                    data-ai-hint="professional headshot Chitteti Sai Bhargav" // Updated AI hint
+                    data-ai-hint="professional headshot Chitteti Sai Bhargav" // Keep AI hint
                  />
              </div>
           </div>
