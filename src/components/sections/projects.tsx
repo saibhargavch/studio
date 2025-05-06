@@ -1,62 +1,35 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, Calendar } from 'lucide-react'; // Added Calendar icon
+import { Github, ExternalLink, Calendar } from 'lucide-react';
 import { projectsData } from '@/lib/data';
 import type { Project } from '@/types';
 import { SectionTitle } from '@/components/section-title';
 import { cn } from '@/lib/utils';
 
 export function ProjectsSection() {
-  const [filter, setFilter] = useState<string>('All');
-
-  // Deduplicate tech stacks for filter buttons
-  const allTechStacks = Array.from(new Set(projectsData.flatMap(p => p.techStack)));
-
-  const filteredProjects = filter === 'All'
-    ? projectsData
-    : projectsData.filter(p => p.techStack.includes(filter));
+  // Filters removed, directly use projectsData
+  const displayedProjects = projectsData;
 
   return (
     <section id="projects" className="bg-secondary py-16 md:py-24"> {/* Added padding */}
       <div className="container mx-auto px-4">
         <SectionTitle>Projects</SectionTitle>
 
-        {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-2 mb-10">
-          <Button
-            variant={filter === 'All' ? 'default' : 'outline'}
-            onClick={() => setFilter('All')}
-            className={cn("transition-all", filter === 'All' && 'bg-accent text-accent-foreground hover:bg-accent/90')}
-            aria-pressed={filter === 'All'}
-          >
-            All
-          </Button>
-          {allTechStacks.map((tech) => (
-            <Button
-              key={tech}
-              variant={filter === tech ? 'default' : 'outline'}
-              onClick={() => setFilter(tech)}
-              className={cn("transition-all", filter === tech && 'bg-accent text-accent-foreground hover:bg-accent/90')}
-               aria-pressed={filter === tech}
-            >
-              {tech}
-            </Button>
-          ))}
-        </div>
+        {/* Filter Buttons Removed */}
 
         {/* Project Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10"> {/* Added mt-10 to compensate for removed filter buttons */}
+          {displayedProjects.map((project, index) => (
             <ProjectCard key={index} project={project} />
           ))}
-           {filteredProjects.length === 0 && (
-             <p className="text-muted-foreground text-center col-span-full">No projects match the selected filter.</p>
+           {displayedProjects.length === 0 && ( // Kept this in case projectsData is empty
+             <p className="text-muted-foreground text-center col-span-full">No projects to display.</p>
            )}
         </div>
       </div>
@@ -69,7 +42,6 @@ function ProjectCard({ project }: { project: Project }) {
      // Added group class for image hover effect
     <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02] flex flex-col bg-card group">
       <CardHeader className="p-0 relative"> {/* Added relative positioning */}
-        {/* TODO: Replace placeholder image with your actual project screenshot */}
         <div className="aspect-video overflow-hidden">
           <Image
             src={project.image}
@@ -82,7 +54,6 @@ function ProjectCard({ project }: { project: Project }) {
         </div>
          {/* Optional: Overlay for links on hover */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-end p-4 space-x-2">
-             {/* TODO: Ensure these links point to your actual project URLs */}
               {project.githubUrl && project.githubUrl !== '#' && (
                 <Button variant="secondary" size="icon" asChild className="h-8 w-8 rounded-full">
                     <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} GitHub Repository`}>
