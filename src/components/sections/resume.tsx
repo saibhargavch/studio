@@ -61,10 +61,10 @@ export function ResumeSection() {
                         const BadgeContent = (
                            <Badge
                               key={item.title}
-                              variant={isLink ? "default" : "secondary"} // Use primary for links
+                              variant={isLink ? "outline" : "secondary"} // Use outline for links
                               className={cn(
                                 "text-sm font-medium transition-transform hover:scale-105",
-                                isLink ? "cursor-pointer hover:bg-primary/80" : "cursor-default"
+                                isLink ? "cursor-pointer hover:bg-accent/10 hover:text-accent" : "cursor-default"
                               )}
                            >
                              {item.title}
@@ -137,3 +137,4 @@ function ResumeItemContent({ item }: { item: ResumeItem }) {
     </div>
   );
 }
+
