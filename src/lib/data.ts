@@ -124,7 +124,7 @@ export const projectsData: Project[] = [
     image: 'https://connectivitycenter.com/wp-content/uploads/2023/03/A-Cybersecurity-Guide-to-USB-Ports.jpg',
     techStack: ['Python', 'System Security'],
     // liveUrl: '#', // No live URL provided
-    // githubUrl: '#', // No GitHub URL provided
+    githubUrl: 'https://github.com/saibhargavch/USB-Physical-Security-using-Python', // Added GitHub URL
     aiHint: 'usb security python application system',
     date: 'May 2024 - June 2024' // Added date
   },
@@ -148,3 +148,4 @@ export const navLinks = [
   { name: 'Projects', hash: '#projects' },
   // { name: 'Contact', hash: '#contact' }, // Removed Contact link
 ];
+
