@@ -65,12 +65,11 @@ export const resumeData: ResumeSection[] = [
   {
     title: 'Certifications', // Added Certifications section
     items: [
-      // TODO: Replace '#' with actual URLs for each certification link
-      { title: 'Career Essentials in Cybersecurity by Microsoft and LinkedIn', description: '', url: '#' },
-      { title: 'CISCO: Introduction to Cybersecurity', description: '', url: '#' },
-      { title: 'CCNA: Introduction to Networks', description: '', url: '#' },
-      { title: 'CCNA: Switching, Routing, and Wireless Essentials', description: '', url: '#' },
-      { title: 'PCAP - Programming Essentials in Python', description: '', url: '#' },
+      { title: 'Career Essentials in Cybersecurity by Microsoft and LinkedIn', description: '', url: 'https://drive.google.com/file/d/1zeAyeHcumnlhygrTWleYyahKw4YhbkLO/view?usp=sharing' },
+      { title: 'CISCO: Introduction to Cybersecurity', description: '', url: 'https://drive.google.com/file/d/1EcdKzKngMFD7tWWwa-lyw_wl7pMIXWCQ/view?usp=sharing' },
+      { title: 'CCNA: Introduction to Networks', description: '', url: 'https://drive.google.com/file/d/1wA1UeoCDK4b-l_HAHz2VDUIMgLb1knWG/view?usp=sharing' },
+      { title: 'CCNA: Switching, Routing, and Wireless Essentials', description: '', url: 'https://drive.google.com/file/d/1wnV0hVdOHDwCB-AJ3M9OsGYzBWasxhjq/view?usp=sharing' },
+      { title: 'PCAP - Programming Essentials in Python', description: '', url: 'https://drive.google.com/file/d/1D7WjemwnsFTL5OgelRYLxzDDrEg1HqA6/view?usp=sharing' },
     ],
   },
   {
