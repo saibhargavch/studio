@@ -11,8 +11,8 @@ export function HeroSection() {
   const userName = "Chitteti Sai Bhargav";
   // Updated with user's tagline from profile summary
   const userTagline = "Aspiring Cybersecurity student with hands-on experience in VAPT, network security, and secure IoT applications.";
-  // Updated image source to the provided LinkedIn URL
-  const profileImageUrl = "https://media.licdn.com/dms/image/v2/D5603AQEER0qv_KjZ_Q/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1729707090476?e=2147483647&v=beta&t=7wYz5rV1OzgQp2X1Dhx8Sr9XH6b-hV7LZcs4qOUMMLM";
+  // Updated image source to the new provided URL
+  const profileImageUrl = "https://media-hosting.imagekit.io/79d10a40387547a6/IMG-20221017-WA0012-min%20(1).jpg?Expires=1841154289&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=PvhjGuNKKJEY7cbDF4D71wA6WFDwMz3ym3Ux7KuiXZAY8YsgormringVi1rRhCuLpTg3PPMWfewuvmrZQqQp8vVJnZWmDcVvnOVWeCYR3TDapjUQCykqznUCO-5pn6N7NpEP7D7prwJQJry8Zi1RrKK1V-3GXKkWw~MyxhRBS9lLfJ4ZHLA0gz3RawiLMX1rvoFBCzoIa6S95pJ7ndiK~ye2LYgq4Bo49vYTy95hC7dX84Lj1eMrlKBm8lhFG5r~3bX0eWyt7RkwkZYfAtcZkf2Ly0wFIV-VZcU5GIS9TWGw30F~~JQ8DztLq7dX~1yaZqDmVX9vKd6S2gV7hYkL2A__";
 
   const handleScrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();

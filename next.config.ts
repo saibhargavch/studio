@@ -40,6 +40,18 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**', // Allow images from GitHubusercontent CDN
       },
+      {
+        protocol: 'https',
+        hostname: 'imagekit.io',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'media-hosting.imagekit.io',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };
