@@ -16,29 +16,31 @@ export function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
 
-      // Update active link based on scroll position
       let currentSection = '#home';
       const sections = navLinks.map(link => document.getElementById(link.hash.substring(1))).filter(Boolean);
+      
+      // Include footer as a potential active section if 'Contact' was previously a navLink
+      const contactFooter = document.getElementById('contact');
+      if (contactFooter && !navLinks.find(link => link.hash === '#contact')) {
+        sections.push(contactFooter);
+      }
 
-      // Ensure sections array is not empty before proceeding
+
       if (sections.length > 0) {
         for (const section of sections) {
             if (section && section.offsetTop <= window.scrollY + 100) {
                 currentSection = `#${section.id}`;
             } else if (section && section.offsetTop > window.scrollY + 100) {
-                 // If the current section is below the scroll position + offset, break
-                 // This prevents later sections from incorrectly becoming active when scrolling up fast
                  break;
             }
         }
-         // Special case for reaching the bottom of the page
          if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
-             const lastSection = sections[sections.length - 1];
-             if (lastSection) {
-                 currentSection = `#${lastSection.id}`;
+             const lastNavigableSection = sections.find(s => s?.id === 'contact') || sections[sections.length - 1];
+             if (lastNavigableSection) {
+                 currentSection = `#${lastNavigableSection.id}`;
              }
          }
-      } else if (window.scrollY < 100) { // Default to home if no sections or at top
+      } else if (window.scrollY < 100) { 
             currentSection = '#home';
       }
 
@@ -47,7 +49,7 @@ export function Header() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
+    handleScroll(); 
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -57,7 +59,6 @@ export function Header() {
       href={href}
       className={cn(
         'text-sm font-medium transition-colors hover:text-primary px-3 py-2 rounded-md',
-         // Apply different active styles based on context (sheet vs header)
          isSheetLink
            ? activeLink === href ? 'bg-muted text-primary' : 'text-muted-foreground'
            : activeLink === href ? 'bg-secondary text-primary' : 'text-muted-foreground'
@@ -66,7 +67,7 @@ export function Header() {
         e.preventDefault();
         const element = document.querySelector(href);
         if (element) {
-           const offset = 80; // Adjust this value based on your header height
+           const offset = href === '#contact' ? 0 : 80; // No offset for footer contact
            const bodyRect = document.body.getBoundingClientRect().top;
            const elementRect = element.getBoundingClientRect().top;
            const elementPosition = elementRect - bodyRect;
@@ -79,7 +80,6 @@ export function Header() {
         }
 
         setActiveLink(href);
-        // If it's a sheet link, we might want to close the sheet - handled by SheetTrigger asChild below
       }}
     >
       {children}
@@ -94,21 +94,26 @@ export function Header() {
       )}
     >
       <div className="container flex h-16 items-center justify-between">
-        {/* Updated with user's full name */}
-        <Link href="#home" className="text-xl font-bold text-primary" onClick={() => setActiveLink('#home')}>
+        <Link href="#home" className="text-xl font-bold text-primary" onClick={(e) => {
+          e.preventDefault();
+          setActiveLink('#home');
+          window.scrollTo({ top: 0, behavior: 'smooth'});
+        }}>
           Sai Bhargav Chitteti
         </Link>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-1">
           {navLinks.map((link) => (
             <NavLink key={link.hash} href={link.hash}>
               {link.name}
             </NavLink>
           ))}
+           {/* Manually add Contact link to header if not in navLinks, pointing to footer */}
+          {!navLinks.find(link => link.name === 'Contact') && (
+             <NavLink href="#contact">Contact</NavLink>
+           )}
         </nav>
 
-        {/* Mobile Navigation */}
         <Sheet>
           <SheetTrigger asChild className="md:hidden">
             <Button variant="ghost" size="icon">
@@ -120,13 +125,18 @@ export function Header() {
             <div className="flex flex-col p-6 pt-12">
               <nav className="flex flex-col space-y-4">
                 {navLinks.map((link) => (
-                    // Use SheetTrigger asChild to close the sheet on link click
                     <SheetTrigger key={link.hash} asChild>
                        <NavLink href={link.hash} isSheetLink={true}>
                         {link.name}
                       </NavLink>
                     </SheetTrigger>
                 ))}
+                 {/* Manually add Contact link to sheet if not in navLinks, pointing to footer */}
+                {!navLinks.find(link => link.name === 'Contact') && (
+                   <SheetTrigger asChild>
+                     <NavLink href="#contact" isSheetLink={true}>Contact</NavLink>
+                   </SheetTrigger>
+                )}
               </nav>
             </div>
           </SheetContent>

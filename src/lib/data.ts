@@ -146,6 +146,5 @@ export const navLinks = [
   { name: 'Home', hash: '#home' },
   { name: 'Resume', hash: '#resume' }, // Combined Internships, Education, Achievements, Certs, Skills
   { name: 'Projects', hash: '#projects' },
-  { name: 'Contact', hash: '#contact' },
+  // { name: 'Contact', hash: '#contact' }, // Removed Contact link
 ];
-

@@ -14,6 +14,14 @@ export function HeroSection() {
   // Updated image source to the provided LinkedIn URL
   const profileImageUrl = "https://media.licdn.com/dms/image/v2/D5603AQEER0qv_KjZ_Q/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1729707090476?e=2147483647&v=beta&t=7wYz5rV1OzgQp2X1Dhx8Sr9XH6b-hV7LZcs4qOUMMLM";
 
+  const handleScrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="home" className="min-h-[calc(100vh-4rem)] flex items-center bg-secondary relative overflow-hidden">
        {/* Subtle background elements */}
@@ -35,7 +43,9 @@ export function HeroSection() {
                 <Link href="#projects">View Projects</Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link href="#contact">Get in Touch <ArrowDown className="ml-2 h-4 w-4" /></Link>
+                <Link href="#contact" onClick={handleScrollToContact}>
+                  Get in Touch <ArrowDown className="ml-2 h-4 w-4" />
+                </Link>
               </Button>
             </div>
           </div>
