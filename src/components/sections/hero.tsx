@@ -10,7 +10,7 @@ export function HeroSection() {
   // Updated with user's name
   const userName = "Chitteti Sai Bhargav";
   // Updated with user's tagline from profile summary
-  const userTagline = "Aspiring Cybersecurity professional with hands-on experience in VAPT, network security, and secure IoT applications.";
+  const userTagline = "Aspiring Cybersecurity student with hands-on experience in VAPT, network security, and secure IoT applications.";
   // Updated image source to the provided LinkedIn URL
   const profileImageUrl = "https://media.licdn.com/dms/image/v2/D5603AQEER0qv_KjZ_Q/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1729707090476?e=2147483647&v=beta&t=7wYz5rV1OzgQp2X1Dhx8Sr9XH6b-hV7LZcs4qOUMMLM";
 

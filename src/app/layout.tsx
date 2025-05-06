@@ -15,7 +15,7 @@ const inter = Inter({
 // Updated metadata with user's actual name and description
 export const metadata: Metadata = {
   title: 'Chitteti Sai Bhargav - Cybersecurity Portfolio', // Updated title with user's name
-  description: 'Portfolio showcasing the skills, projects, and experience of Chitteti Sai Bhargav, an aspiring Cybersecurity professional.', // Updated description
+  description: 'Portfolio showcasing the skills, projects, and experience of Chitteti Sai Bhargav, an aspiring Cybersecurity student.', // Updated description
 };
 
 export default function RootLayout({
