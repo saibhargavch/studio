@@ -10,12 +10,14 @@ export const resumeData: ResumeSection[] = [
         subtitle: 'Vijayawada, Andhra Pradesh',
         date: 'May 2024 - June 2024',
         description: 'Gained substantial experience in cybersecurity practices, enhancing both foundational and advanced skills. Acquired proficiency in network fundamentals and advanced networking security measures. Utilized Kali Linux and Windows to develop practical skills in various operating system environments. Conducted penetration tests and vulnerability scans on web and mobile applications, identifying and addressing potential security weaknesses.',
+        url: 'https://drive.google.com/file/d/17T1jqvjpnPOZtp91bQ5hmT4c-A-gSwhp/view?usp=sharing',
       },
       {
         title: 'The Red Users',
         subtitle: 'Chennai, Tamil Nadu',
         date: 'October 2024 - November 2024', // Assuming current year based on context, adjust if needed
         description: 'Gained hands-on experience in Vulnerability Assessment and Penetration Testing (VAPT) methodologies. Performed penetration testing to identify security flaws and provide actionable recommendations. Conducted risk assessments for various systems and applications, ensuring robust security measures. Learned to use industry-standard tools such as Burp Suite, Nmap, Metasploit, and Wireshark for security testing. Developed an understanding of OWASP Top 10 vulnerabilities and mitigation strategies.',
+        url: 'https://drive.google.com/file/d/1gyI9xGmumG_Bxf1Mj_G6vtH9cE-uYr3o/view?usp=sharing',
       },
     ],
   },
