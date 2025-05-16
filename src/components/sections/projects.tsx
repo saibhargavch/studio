@@ -1,3 +1,4 @@
+
 'use client';
 
 import React from 'react';
@@ -39,8 +40,8 @@ export function ProjectsSection() {
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-     // Added group class for image hover effect
-    <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02] flex flex-col bg-card group">
+     // Added group class for image hover effect and enhanced card hover
+    <Card className="overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.03] flex flex-col bg-card group border border-transparent hover:border-accent/50">
       <CardHeader className="p-0 relative"> {/* Added relative positioning */}
         <div className="aspect-video overflow-hidden">
           <Image
@@ -53,16 +54,16 @@ function ProjectCard({ project }: { project: Project }) {
           />
         </div>
          {/* Optional: Overlay for links on hover */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-end p-4 space-x-2">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-end p-4 space-x-2">
               {project.githubUrl && project.githubUrl !== '#' && (
-                <Button variant="secondary" size="icon" asChild className="h-8 w-8 rounded-full">
+                <Button variant="secondary" size="icon" asChild className="h-9 w-9 rounded-full shadow-md hover:bg-accent/80 hover:text-accent-foreground">
                     <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} GitHub Repository`}>
                     <Github className="h-4 w-4" />
                     </Link>
                 </Button>
               )}
               {project.liveUrl && project.liveUrl !== '#' && (
-                <Button variant="secondary" size="icon" asChild className="h-8 w-8 rounded-full">
+                <Button variant="secondary" size="icon" asChild className="h-9 w-9 rounded-full shadow-md hover:bg-accent/80 hover:text-accent-foreground">
                     <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} Live Demo`}>
                     <ExternalLink className="h-4 w-4" />
                     </Link>
@@ -80,29 +81,11 @@ function ProjectCard({ project }: { project: Project }) {
         <p className="text-sm text-muted-foreground mb-4 flex-grow">{project.description}</p> {/* Make description grow */}
         <div className="flex flex-wrap gap-2 mt-auto"> {/* Push tech stack to bottom */}
           {project.techStack.map((tech) => (
-            <Badge key={tech} variant="secondary">{tech}</Badge>
+            <Badge key={tech} variant="secondary" className="font-normal">{tech}</Badge>
           ))}
         </div>
       </CardContent>
-       {/* Footer can be simplified or removed if links are moved to hover overlay */}
-       {/*
-      <CardFooter className="p-4 pt-2 flex justify-end space-x-2">
-        {project.githubUrl && project.githubUrl !== '#' && (
-          <Button variant="ghost" size="icon" asChild>
-            <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} GitHub`}>
-              <Github className="h-5 w-5" />
-            </Link>
-          </Button>
-        )}
-        {project.liveUrl && project.liveUrl !== '#' && (
-          <Button variant="ghost" size="icon" asChild>
-            <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} Live Demo`}>
-              <ExternalLink className="h-5 w-5" />
-            </Link>
-          </Button>
-        )}
-      </CardFooter>
-      */}
+       {/* Footer has been removed as links are in the hover overlay */}
     </Card>
   );
 }

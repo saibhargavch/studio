@@ -34,14 +34,16 @@ export function ResumeSection() {
         <Accordion type="multiple" collapsible className="w-full max-w-4xl mx-auto" defaultValue={[]}>
           {resumeData.map((section, index) => {
             const IconComponent = iconMap[section.title] || Star; // Default to Star if no icon mapped
-            const isBadgeSection = section.title === 'Technical Skills and Interests'; // Only Skills/Interests remain non-link badges
+            const isBadgeSection = section.title === 'Technical Skills and Interests'; 
             const isCertificationSection = section.title === 'Certifications';
+            const isInternshipSection = section.title === 'Internships';
+
 
             return (
               <AccordionItem value={`item-${index}`} key={section.title} className="border-b border-border last:border-b-0">
-                <AccordionTrigger className="text-lg md:text-xl font-semibold hover:text-accent transition-colors py-4 [&[data-state=open]>svg]:text-accent">
-                  <span className="flex items-center">
-                    <IconComponent className="h-5 w-5 mr-3 text-primary" />
+                <AccordionTrigger className="text-lg md:text-xl font-semibold hover:text-accent transition-colors py-4 [&[data-state=open]>svg]:text-accent [&_svg:first-child]:text-primary [&_svg:first-child]:group-hover:text-accent">
+                  <span className="flex items-center group">
+                    <IconComponent className="h-5 w-5 mr-3 text-primary transition-colors" />
                     {section.title}
                   </span>
                 </AccordionTrigger>
@@ -49,7 +51,7 @@ export function ResumeSection() {
                   {isBadgeSection ? (
                      <div className="flex flex-wrap gap-2">
                       {section.items.map((item) => (
-                        <Badge key={item.title} variant="secondary" className="text-sm font-medium transition-transform hover:scale-105 cursor-default">
+                        <Badge key={item.title} variant="secondary" className="text-sm font-medium transition-transform hover:scale-105 cursor-default shadow-sm">
                             {item.title}
                          </Badge>
                       ))}
@@ -61,10 +63,10 @@ export function ResumeSection() {
                         const BadgeContent = (
                            <Badge
                               key={item.title}
-                              variant={isLink ? "outline" : "secondary"} // Use outline for links
+                              variant={isLink ? "outline" : "secondary"} 
                               className={cn(
-                                "text-sm font-medium transition-transform hover:scale-105",
-                                isLink ? "cursor-pointer hover:bg-accent/10 hover:text-accent" : "cursor-default"
+                                "text-sm font-medium transition-all duration-200 hover:scale-105 shadow-sm",
+                                isLink ? "cursor-pointer hover:bg-accent/10 hover:text-accent hover:border-accent/60 hover:shadow-md" : "cursor-default"
                               )}
                            >
                              {item.title}
@@ -79,20 +81,20 @@ export function ResumeSection() {
                                 href={item.url!}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                aria-label={`View certificate: ${item.title}`} // Add aria-label
+                                aria-label={`View certificate: ${item.title}`} 
                               >
                                 {BadgeContent}
                               </Link>
                           );
                         }
-                        return BadgeContent; // Render non-clickable badge
+                        return BadgeContent; 
                       })}
                     </div>
                   ) : (
-                    <ul className="space-y-6 border-l border-accent pl-6 relative">
+                    <ul className="space-y-6 border-l border-accent/70 pl-6 relative">
                       {section.items.map((item, itemIndex) => (
-                        <li key={itemIndex} className="relative before:absolute before:left-[-30.5px] before:top-[5px] before:h-3 before:w-3 before:rounded-full before:bg-accent">
-                         <ResumeItemContent item={item} />
+                        <li key={itemIndex} className="relative before:absolute before:left-[-30.5px] before:top-[5px] before:h-3 before:w-3 before:rounded-full before:bg-accent before:shadow-[0_0_6px_hsl(var(--accent))]">
+                         <ResumeItemContent item={item} isInternship={isInternshipSection} />
                         </li>
                       ))}
                     </ul>
@@ -108,7 +110,7 @@ export function ResumeSection() {
 }
 
 
-function ResumeItemContent({ item }: { item: ResumeItem }) {
+function ResumeItemContent({ item, isInternship }: { item: ResumeItem, isInternship?: boolean }) {
  return (
     <div className="space-y-1">
       <h4 className="text-base font-semibold text-primary">{item.title}</h4>
@@ -123,18 +125,16 @@ function ResumeItemContent({ item }: { item: ResumeItem }) {
         </p>
       )}
       {item.description && <p className="text-sm text-foreground leading-relaxed">{item.description}</p>}
-      {/* Optional: Display link if URL exists for non-badge items too */}
-      {item.url && item.url !== '#' && (
+      {isInternship && item.url && item.url !== '#' && (
          <Link
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-accent hover:underline inline-flex items-center"
+            className="text-sm text-accent hover:underline inline-flex items-center mt-1 group"
           >
-            View Link <LinkIcon className="ml-1 h-3 w-3" />
+            View Certificate <LinkIcon className="ml-1 h-3 w-3 group-hover:translate-x-0.5 transition-transform" />
           </Link>
       )}
     </div>
   );
 }
-

@@ -62,7 +62,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={link.label}
-              className="group bg-card p-4 rounded-lg shadow-md hover:shadow-lg hover:bg-accent/10 transition-all duration-300 flex flex-col items-center justify-center aspect-square"
+              className="group bg-card p-4 rounded-lg shadow-md hover:shadow-xl hover:bg-accent/10 transition-all duration-300 flex flex-col items-center justify-center aspect-square border border-transparent hover:border-accent/50"
             >
               <link.icon className="h-10 w-10 md:h-12 md:w-12 text-primary group-hover:text-accent transition-colors" />
               <span className="mt-2 text-sm text-muted-foreground group-hover:text-accent font-medium">{link.label}</span>

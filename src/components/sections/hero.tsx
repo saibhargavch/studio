@@ -25,7 +25,7 @@ export function HeroSection() {
   };
 
   return (
-    <section id="home" className="min-h-[calc(100vh-4rem)] flex items-center bg-secondary relative overflow-hidden">
+    <section id="home" className="min-h-[calc(100vh-4rem)] flex items-center bg-secondary relative overflow-hidden py-12 md:py-0">
        {/* Subtle background elements */}
         <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-accent/10 rounded-full filter blur-xl opacity-50 animate-blob"></div>
         <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-primary/5 rounded-full filter blur-2xl opacity-30 animate-blob animation-delay-2000"></div>
@@ -41,15 +41,15 @@ export function HeroSection() {
              {userTagline}
             </p>
             <div className="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
-              <Button size="lg" asChild>
+              <Button size="lg" asChild className="shadow-md hover:shadow-lg hover:bg-primary/90 transition-all">
                 <Link href="#projects">View Projects</Link>
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button size="lg" variant="outline" asChild className="shadow-md hover:shadow-lg hover:border-accent/70 hover:bg-accent/10 transition-all">
                 <a href={resumePdfUrl} target="_blank" rel="noopener noreferrer">
                   Download Resume <Download className="ml-2 h-4 w-4" />
                 </a>
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button size="lg" variant="outline" asChild className="shadow-md hover:shadow-lg hover:border-accent/70 hover:bg-accent/10 transition-all">
                 <Link href="#contact" onClick={handleScrollToContact}>
                   Get in Touch <ArrowDown className="ml-2 h-4 w-4" />
                 </Link>
@@ -57,16 +57,15 @@ export function HeroSection() {
             </div>
           </div>
           <div className="md:w-1/3 flex justify-center animate-fade-in">
-             {/* Using the online profile photo. */}
-             <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden bg-gradient-to-br from-accent/20 to-primary/10 shadow-lg border-4 border-background flex items-center justify-center">
+             <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden bg-gradient-to-br from-accent/20 to-primary/10 shadow-lg border-4 border-background flex items-center justify-center transition-all duration-300 hover:shadow-[0_0_25px_3px_hsla(var(--accent),0.35)]">
                 <Image
-                    src={profileImageUrl} // Using the online image URL
-                    alt={`Profile photo of ${userName}`} // Updated alt text
-                    width={200} // Using original image dimensions
-                    height={200} // Using original image dimensions
+                    src={profileImageUrl} 
+                    alt={`Profile photo of ${userName}`}
+                    width={200} 
+                    height={200} 
                     className="object-cover w-full h-full"
-                    priority // Add priority to preload the hero image
-                    data-ai-hint="professional headshot Chitteti Sai Bhargav" // Keep AI hint
+                    priority 
+                    data-ai-hint="professional headshot Chitteti Sai Bhargav"
                  />
              </div>
           </div>
