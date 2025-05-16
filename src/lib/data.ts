@@ -136,7 +136,7 @@ export const projectsData: Project[] = [
     image: 'https://camo.githubusercontent.com/91682d48defd2322db208e2a75583408f6f2d5cb61b230c8a76f78d986433fff/68747470733a2f2f69302e77702e636f6d2f746865636c6576657270726f6772616d6d65722e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032302f31322f4d616368696e652d4c6561726e696e672d50726f6a6563742d6f6e2d486f7573652d50726963652d50726564696374696f6e2e706e673f6669743d313238302532433732302673736c3d31',
     techStack: ['Machine Learning', 'Python', 'Pandas', 'Scikit-learn', 'Matplotlib', 'Data Preprocessing', 'Feature Engineering'],
     // liveUrl: '#', // No live URL provided
-    // githubUrl: '#', // No GitHub URL provided
+    githubUrl: 'https://github.com/saibhargavch/House-Price-Prediction-Using-Machine-Learning.git', // Added GitHub URL
     aiHint: 'machine learning prediction house price data',
     date: 'November 2024 - January 2025' // Added date
   },
@@ -149,4 +149,3 @@ export const navLinks = [
   { name: 'Projects', hash: '#projects' },
   // { name: 'Contact', hash: '#contact' }, // Removed Contact link
 ];
-
