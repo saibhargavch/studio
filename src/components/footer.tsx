@@ -1,22 +1,19 @@
+
 import React from 'react';
 import Link from 'next/link';
 import { Github, Linkedin, Mail } from 'lucide-react'; 
 
-// WhatsApp SVG Icon
+// Updated WhatsApp SVG Icon
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
     height="24"
     viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
+    fill="currentColor" // Changed to currentColor for filled icon
     {...props}
   >
-    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+    <path d="M12.04 2C6.48 2 2 6.48 2 12s4.48 10 10.04 10H12c5.52 0 10-4.48 10-10S17.52 2 12 2h-.04zm0 1.67c4.6 0 8.33 3.73 8.33 8.33s-3.73 8.33-8.33 8.33H11.96c-4.6 0-8.33-3.73-8.33-8.33S7.4 3.67 12 3.67zM17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52s-.67-.82-.92-1c-.25-.15-.5-.17-.67-.17-.17 0-.37 0-.57 0s-.37.02-.57.22c-.2.2-.77.77-.77 1.85s.79 2.15.92 2.32c.12.17 1.52 2.46 3.79 3.35.44.2.78.33 1.05.42.41.13.78.11 1.05.07.3-.05.89-.36 1.02-.72.13-.36.13-.66.1-.72s-.17-.1-.37-.2z" />
   </svg>
 );
 
@@ -49,7 +46,7 @@ export function Footer() {
     {
       href: whatsappUrl,
       label: 'WhatsApp',
-      icon: WhatsAppIcon, // Using the inline SVG WhatsAppIcon
+      icon: WhatsAppIcon, // Using the updated inline SVG WhatsAppIcon
     },
   ];
 
