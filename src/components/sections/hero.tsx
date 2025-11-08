@@ -91,8 +91,8 @@ export function HeroSection() {
                 <Image
                     src={profileImageUrl} 
                     alt={`Profile photo of ${userName}`}
-                    width={200} 
-                    height={200} 
+                    width={320} 
+                    height={320} 
                     className="object-cover w-full h-full"
                     priority 
                     data-ai-hint="professional headshot Chitteti Sai Bhargav"
