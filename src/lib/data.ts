@@ -132,7 +132,7 @@ export const projectsData: Project[] = [
     title: 'House Price Prediction (Industry Project)',
     description: 'A machine learning model to predict house prices based on various features. Built a regression-based model to predict house prices using key attributes like location, area, and amenities. Helped identify key features impacting house prices, enabling better decision-making for stakeholders. Performed data preprocessing, visualization, and feature engineering. Technology Used: Python, Pandas, Scikit-learn, Matplotlib.',
     // Updated image URL for House Price Prediction
-    image: 'https://camo.githubusercontent.com/91682d48defd2322db208e2a75583408f6f2d5cb61b230c8a76f78d986433fff/68747470733a2f2f69302e77702e636f6d2f746865636c6576657270726f6772616d6d65722e636f6d2f77702d636f6e74656e742f75706c6f6164732f323032302f31322f4d616368696e652d4c6561726e696e672d50726f6a6563742d6f6e2d486f7573652d50726963652d50726564696374696f6e2e706e673f69743d313238302532433732302673736c3d31',
+    image: 'https://miro.medium.com/v2/resize:fit:1100/format:webp/0*cDRFtpTiOJFrfzS5.jpg',
     techStack: ['Machine Learning', 'Python', 'Pandas', 'Scikit-learn', 'Matplotlib', 'Data Preprocessing', 'Feature Engineering'],
     // liveUrl: '#', // No live URL provided
     githubUrl: 'https://github.com/saibhargavch/House-Price-Prediction-Using-Machine-Learning.git', // Added GitHub URL
