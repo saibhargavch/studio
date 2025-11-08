@@ -1,15 +1,13 @@
 import { HeroSection } from '@/components/sections/hero';
-import { ResumeSection } from '@/components/sections/resume';
+import { ResumeViewerSection } from '@/components/sections/resume-viewer';
 import { ProjectsSection } from '@/components/sections/projects';
-// Removed ContactSection import
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-      <ResumeSection />
+      <ResumeViewerSection />
       <ProjectsSection />
-      {/* Removed ContactSection component */}
     </>
   );
 }
