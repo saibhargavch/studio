@@ -23,9 +23,9 @@ export function HeroSection() {
   // Updated image source to a local file in the public directory
   const profileImageUrl = "/profile.jpg";
   
-  // The resume is now loaded from the public folder
-  const resumeUrl = "/resume.pdf";
-  const resumeEmbedUrl = "/resume.pdf";
+  // The resume is now loaded from the Google Drive link
+  const resumeUrl = "https://drive.google.com/file/d/1MGe-cGZjKa21-jVPeQrmNP0K-0n5mnSC/view?usp=sharing";
+  const resumeEmbedUrl = "https://drive.google.com/file/d/1MGe-cGZjKa21-jVPeQrmNP0K-0n5mnSC/preview";
   
   const handleScrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
