@@ -3,9 +3,18 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowDown, Download } from 'lucide-react'; 
+import { ArrowDown, Download, FileText } from 'lucide-react'; 
 import Link from 'next/link';
 import Image from 'next/image';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogClose,
+} from "@/components/ui/dialog"
+
 
 export function HeroSection() {
   // Updated with user's name
@@ -15,6 +24,7 @@ export function HeroSection() {
   // Updated image source to the new provided URL
   const profileImageUrl = "https://media-hosting.imagekit.io/79d10a40387547a6/IMG-20221017-WA0012-min%20(1).jpg?Expires=1841154289&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=PvhjGuNKKJEY7cbDF4D71wA6WFDwMz3ym3Ux7KuiXZAY8YsgormringVi1rRhCuLpTg3PPMWfewuvmrZQqQp8vVJnZWmDcVvnOVWeCYR3TDapjUQCykqznUCO-5pn6N7NpEP7D7prwJQJry8Zi1RrKK1V-3GXKkWw~MyxhRBS9lLfJ4ZHLA0gz3RawiLMX1rvoFBCzoIa6S95pJ7ndiK~ye2LYgq4Bo49vYTy95hC7dX84Lj1eMrlKBm8lhFG5r~3bX0eWyt7RkwkZYfAtcZkf2Ly0wFIV-VZcU5GIS9TWGw30F~~JQ8DztLq7dX~1yaZqDmVX9vKd6S2gV7hYkL2A__";
   const resumeUrl = "https://drive.google.com/file/d/13UQ266NF0ynMEY3xNVJTzJr9c5W386tB/view?usp=sharing";
+  const resumeEmbedUrl = "https://drive.google.com/file/d/13UQ266NF0ynMEY3xNVJTzJr9c5W386tB/preview";
   
   const handleScrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -44,11 +54,30 @@ export function HeroSection() {
               <Button size="lg" asChild className="shadow-md hover:shadow-lg hover:bg-primary/90 transition-all">
                 <Link href="#projects">View Projects</Link>
               </Button>
-               <Button size="lg" variant="outline" asChild className="shadow-md hover:shadow-lg hover:border-accent/70 hover:bg-accent/10 transition-all">
-                <a href={resumeUrl} target="_blank" rel="noopener noreferrer">
-                  Download Resume <Download className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
+               
+               <Dialog>
+                  <DialogTrigger asChild>
+                     <Button size="lg" variant="outline" className="shadow-md hover:shadow-lg hover:border-accent/70 hover:bg-accent/10 transition-all">
+                        Resume <FileText className="ml-2 h-4 w-4" />
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="w-full max-w-4xl h-[90vh] p-0">
+                      <DialogHeader className="p-4 border-b">
+                         <DialogTitle>My Resume</DialogTitle>
+                      </DialogHeader>
+                      <div className="flex-grow h-full">
+                         <iframe
+                            src={resumeEmbedUrl}
+                            className="w-full h-full"
+                            title="Chitteti Sai Bhargav Resume"
+                            frameBorder="0"
+                          >
+                          Your browser does not support iframes. Please <a href={resumeUrl} target="_blank" rel="noopener noreferrer">download the resume</a> to view it.
+                          </iframe>
+                      </div>
+                  </DialogContent>
+                </Dialog>
+
               <Button size="lg" variant="outline" asChild className="shadow-md hover:shadow-lg hover:border-accent/70 hover:bg-accent/10 transition-all">
                 <Link href="#contact" onClick={handleScrollToContact}>
                   Get in Touch <ArrowDown className="ml-2 h-4 w-4" />
