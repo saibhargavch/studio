@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -23,8 +22,10 @@ export function HeroSection() {
   const userTagline = "Aspiring Cybersecurity student with hands-on experience in VAPT, network security, and secure IoT applications.";
   // Updated image source to the new provided URL
   const profileImageUrl = "https://media-hosting.imagekit.io/79d10a40387547a6/IMG-20221017-WA0012-min%20(1).jpg?Expires=1841154289&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=PvhjGuNKKJEY7cbDF4D71wA6WFDwMz3ym3Ux7KuiXZAY8YsgormringVi1rRhCuLpTg3PPMWfewuvmrZQqQp8vVJnZWmDcVvnOVWeCYR3TDapjUQCykqznUCO-5pn6N7NpEP7D7prwJQJry8Zi1RrKK1V-3GXKkWw~MyxhRBS9lLfJ4ZHLA0gz3RawiLMX1rvoFBCzoIa6S95pJ7ndiK~ye2LYgq4Bo49vYTy95hC7dX84Lj1eMrlKBm8lhFG5r~3bX0eWyt7RkwkZYfAtcZkf2Ly0wFIV-VZcU5GIS9TWGw30F~~JQ8DztLq7dX~1yaZqDmVX9vKd6S2gV7hYkL2A__";
-  const resumeUrl = "https://drive.google.com/file/d/1MGe-cGZjKa21-jVPeQrmNP0K-0n5mnSC/view?usp=sharing";
-  const resumeEmbedUrl = "https://drive.google.com/file/d/1MGe-cGZjKa21-jVPeQrmNP0K-0n5mnSC/preview";
+  
+  // The resume is now loaded from the public folder
+  const resumeUrl = "/resume.pdf";
+  const resumeEmbedUrl = "/resume.pdf";
   
   const handleScrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -61,8 +62,8 @@ export function HeroSection() {
                         Resume <FileText className="ml-2 h-4 w-4" />
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="w-full max-w-4xl h-[90vh] p-0">
-                      <DialogHeader className="p-4 border-b">
+                  <DialogContent className="w-full max-w-4xl h-[90vh] p-0 flex flex-col">
+                      <DialogHeader className="p-4 border-b flex-shrink-0">
                          <DialogTitle>My Resume</DialogTitle>
                       </DialogHeader>
                       <div className="flex-grow h-full">
