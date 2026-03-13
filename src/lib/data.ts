@@ -71,7 +71,7 @@ export const resumeData: ResumeSection[] = [
       { title: 'CISCO: Introduction to Cybersecurity', description: '', url: 'https://drive.google.com/file/d/1EcdKzKngMFD7tWWwa-lyw_wl7pMIXWCQ/view?usp=sharing' },
       { title: 'CCNA: Introduction to Networks', description: '', url: 'https://drive.google.com/file/d/1wA1UeoCDK4b-l_HAHz2VDUIMgLb1knWG/view?usp=sharing' },
       { title: 'CCNA: Switching, Routing, and Wireless Essentials', description: '', url: 'https://drive.google.com/file/d/1wnV0hVdOHDwCB-AJ3M9OsGYzBWasxhjq/view?usp=sharing' },
-      { title: 'PCAP - Programming Essentials in Python', description: '', url: 'https://drive.goosrc/components/sections/hero.tsxgle.com/file/d/1D7WjemwnsFTL5OgelRYLxzDDrEg1HqA6/view?usp=sharing' },
+      { title: 'PCAP - Programming Essentials in Python', description: '', url: 'https://drive.google.com/file/d/1D7WjemwnsFTL5OgelRYLxzDDrEg1HqA6/view?usp=sharing' },
     ],
   },
   {
@@ -144,7 +144,5 @@ export const projectsData: Project[] = [
 // Navigation links - updated based on new sections
 export const navLinks = [
   { name: 'Home', hash: '#home' },
-  { name: 'Resume', hash: '#resume' }, // Combined Internships, Education, Achievements, Certs, Skills
   { name: 'Projects', hash: '#projects' },
-  // { name: 'Contact', hash: '#contact' }, // Removed Contact link
 ];
