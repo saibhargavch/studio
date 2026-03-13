@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -31,7 +30,7 @@ export function ResumeSection() {
       <div className="container mx-auto px-4">
         <SectionTitle>My Resume</SectionTitle>
         {/* Updated defaultValue to [] to have all sections closed initially */}
-        <Accordion type="multiple" collapsible className="w-full max-w-4xl mx-auto" defaultValue={[]}>
+        <Accordion type="multiple" className="w-full max-w-4xl mx-auto" defaultValue={[]}>
           {resumeData.map((section, index) => {
             const IconComponent = iconMap[section.title] || Star; // Default to Star if no icon mapped
             const isBadgeSection = section.title === 'Technical Skills and Interests'; 
