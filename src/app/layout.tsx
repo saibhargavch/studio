@@ -12,10 +12,13 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-// Updated metadata with user's actual name and description
+// Updated metadata with icons pointing to the profile image
 export const metadata: Metadata = {
-  title: 'Chitteti Sai Bhargav - Cybersecurity Portfolio', // Updated title with user's name
-  description: 'Portfolio showcasing the skills, projects, and experience of Chitteti Sai Bhargav, an aspiring Cybersecurity student.', // Updated description
+  title: 'Chitteti Sai Bhargav - Cybersecurity Portfolio',
+  description: 'Portfolio showcasing the skills, projects, and experience of Chitteti Sai Bhargav, an aspiring Cybersecurity student.',
+  icons: {
+    icon: '/profile.jpg',
+  },
 };
 
 export default function RootLayout({

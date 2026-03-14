@@ -1,9 +1,9 @@
-
 'use client';
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
+import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { navLinks } from '@/lib/data';
@@ -20,7 +20,6 @@ export function Header() {
       let currentSection = '#home';
       const sections = navLinks.map(link => document.getElementById(link.hash.substring(1))).filter(Boolean);
       
-      // Include footer as a potential active section if 'Contact' was previously a navLink
       const contactFooter = document.getElementById('contact');
       if (contactFooter && !navLinks.find(link => link.hash === '#contact')) {
         sections.push(contactFooter);
@@ -68,7 +67,7 @@ export function Header() {
         e.preventDefault();
         const element = document.querySelector(href);
         if (element) {
-           const offset = href === '#contact' ? 0 : 80; // No offset for footer contact
+           const offset = href === '#contact' ? 0 : 80; 
            const bodyRect = document.body.getBoundingClientRect().top;
            const elementRect = element.getBoundingClientRect().top;
            const elementPosition = elementRect - bodyRect;
@@ -95,12 +94,21 @@ export function Header() {
       )}
     >
       <div className="container flex h-16 items-center justify-between">
-        <Link href="#home" className="text-xl font-bold text-primary" onClick={(e) => {
+        <Link href="#home" className="flex items-center gap-3 text-xl font-bold text-primary group" onClick={(e) => {
           e.preventDefault();
           setActiveLink('#home');
           window.scrollTo({ top: 0, behavior: 'smooth'});
         }}>
-          Sai Bhargav Chitteti
+          <div className="relative h-9 w-9 overflow-hidden rounded-full border-2 border-accent/20 group-hover:border-accent transition-all duration-300 shadow-sm">
+            <Image 
+              src="/profile.jpg" 
+              alt="Logo" 
+              fill 
+              className="object-cover"
+            />
+          </div>
+          <span className="hidden sm:inline-block">Sai Bhargav Chitteti</span>
+          <span className="sm:hidden">SBC</span>
         </Link>
 
         <nav className="hidden md:flex items-center space-x-1">
@@ -109,7 +117,6 @@ export function Header() {
               {link.name}
             </NavLink>
           ))}
-           {/* Manually add Contact link to header if not in navLinks, pointing to footer */}
           {!navLinks.find(link => link.name === 'Contact') && (
              <NavLink href="#contact">Contact</NavLink>
            )}
@@ -132,7 +139,6 @@ export function Header() {
                       </NavLink>
                     </SheetTrigger>
                 ))}
-                 {/* Manually add Contact link to sheet if not in navLinks, pointing to footer */}
                 {!navLinks.find(link => link.name === 'Contact') && (
                    <SheetTrigger asChild>
                      <NavLink href="#contact" isSheetLink={true}>Contact</NavLink>
